@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>T.M.O. Personel Modülü</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<br>
+<br>
+<h1 class="text-center">Personel Gözlem</h1>
+<br>
+<div class="contact py-sm-5 py-4">
+    <div class="container py-xl-4 py-lg-2">
+        <!-- form -->
+        <form id="form">
+            <div class="contact-grids1 w3agile-6">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 contact-form1 form-group">
+                        <label class="col-form-label">Sicil</label>
+                        <input type="text" class="form-control" placeholder="Personel sicil giriniz"
+                               id="sicil" name="sicil" required="required">
+                        <p id="error_sicil"></p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 contact-form1 form-group">
+                        <label class="col-form-label">Resim ekle</label> <input
+                            type="file" class="form-control" placeholder="" name="image"
+                            id="image" required="required">
+                        <p id="error_file"></p>
+                    </div>
+                </div>
+
+                <div class="right-w3l col-md-3">
+                    <input type="button" id="submit"
+                           class="btn btn-primary form-control" value="Kayıt"> <br>
+                    <br>
+                </div>
+                <div class="right-w3l col-md-1">
+                    <a href="/userFront" style="float: left;"
+                       class="btn btn-success text-right">Tüm Liste </a>
+                </div>
+                <div class="right-w3l col-md-3">
+                    <a href="/personel" style="float: left;"
+                       class="btn btn-info text-right">Yeni Kayıt</a>
+                </div>
+
+
+            </div>
+            <br>
+            <div id="success" class="text-center" style="color: green;"></div>
+            <div id="error" class="text-center" style="color: red;"></div>
+        </form>
+        <br>
+    </div>
+</div>
+<p class="text-center">
+    <img src="/images/loader.gif" alt="loader"
+         style="width: 120px; height: 80px;" id="loader">
+</p>
+<script src="/js/personel.js"></script>
+</body>
+</html>

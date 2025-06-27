@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<head>
+    <div th:replace="common/header :: personelDetay"/>
+    <div th:replace="common/header :: navbar"/>
+</head>
+<body>
+<div class="container main">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center  d-block titulo">BİLGİ NOTU </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: -2px">
+        <div class="col-sm-10" style="margin-top: 2px">
+            <table class="table table-bordered">
+                <tr>
+                    <td class="w-25 text-left"
+                        style="border-right:3px #9FE2BF solid;border-top:0px #9FE2BF solid;">
+                        BİLGİ SUNULAN MAKAM
+                    </td>
+                    <td class="w-75 text-left"
+                        style="background-color:#D6E6F4;border-top:0px #9FE2BF solid;border-right:0px #D6E6F4 solid;">
+                        <span class="my-sm-8 my-6"> Ahmet GÜLDAL - GENEL MÜDÜR</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="border-right:3px #9FE2BF solid;border-top:0px #9FE2BF solid;">
+                        BİLGİ SUNAN MAKAM
+                    </td>
+                    <td style="border-right:0px #41719C solid; border-bottom: 0px">
+                        <span class="my-sm-8 my-6"> İNSAN KAYNAKLARI DAİRESİ BAŞKANLIĞI</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row" style="margin-top: -5px">
+        <div class="col-lg-12">
+            <div class="text-black text-center  d-block titulo">ÖZLÜK BİLGİLERİ </div>
+        </div>
+        <div class="col-sm-10">
+            <table class="table table-sm">
+                <tbody>
+                <tr>
+                    <td class="w-25 text-left" style="border-right:1px #9FE2BF solid;border-top:0px #9FE2BF solid;">
+                        AD-SOYAD/SİCİL
+                    </td>
+                    <td class="w-50"
+                        style="background-color:#D6E6F4;border-top:0px #9FE2BF solid;border-right:0px #9FE2BF solid;">
+                        <span th:text="${ad}" class="my-sm-8 my-6"/> -
+                        <span th:text="${soyad}" class="my-sm-8 my-6"/> /
+                        <span th:text="${sicil}" class="my-sm-8 my-6"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="width:200px;height:5px;border-right:1px #41719C solid;">İŞYERİ
+                    </td>
+                    <td style="border-right:0px #41719C solid; border-bottom: 6px">
+                        <span th:text="${isyeri}" class="my-sm-8 my-6"/>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="width:200px; height:5px;  border-right:1px #41719C solid;">ÜNVAN
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${unvanadi}" class="my-sm-8 my-6"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="width:200px;border-right:1px #41719C solid;">ÖĞRENİM DURUMU</td>
+                    <td style="border-right:0px #41719C solid;">
+                        <span th:text="${okul}" class="my-sm-8 my-6"/> /
+                        <span th:text="${fakulte}" class="my-sm-8 my-6"/> /
+                        <span th:text="${bolum}" class="my-sm-8 my-6"/>
+                        <!-- <div class="select-wrapper">
+                             <select style="border:0;" class="w-100 element-white">
+                                 <option></option>
+                                 <option>Yüksek Lisans</option>
+                                 <option>Lisans</option>
+                                 <option>Ön Lisans</option>
+                                 <option>Lise</option>
+                                 <option>OrtaOkul</option>
+                             </select>
+                         </div>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="width:200px; height:5px;  border-right:1px #41719C solid;">DOĞUM
+                        TARİHİ/YERİ
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${#dates.format(dogumtarih,'dd.MM.yyyy')}" class="my-sm-8 my-6"/> /
+                        <span th:text="${dogumil}" class="my-sm-8 my-6"/>-
+                        <span th:text="${dogumyeri}" class="my-sm-8 my-6"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="w-25 text-left" style="width:200px; height:5px;  border-right:1px #41719C solid;">HİZMET
+                        SÜRESİ
+                    </td>
+                    <td style="border-right:0px #41719C solid;">
+                        <span th:text="${yil}" class="my-sm-8 my-6"/> yıl
+                        <span th:text="${ay}" class="my-sm-8 my-6"/> ay
+                        <span th:text="${gun}" class="my-sm-8 my-6"/> gün
+                    </td>
+                </tr>
+
+                <!--<tr>
+                    <td style="width:200px;border-right:1px #41719C solid;" class="text-center" >Físico Responsável</td>
+                    <td style="background-color:#D6E6F4;border-right:1px #41719C solid;">
+                        <div class="select-wrapper">
+                            <select style="border:0;" class="w-100">
+                                <option></option>
+                                <option>Carlos Vernet Sanches</option>
+                                <option>Cláudia Maria Luciano</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>-->
+                </tbody>
+            </table>
+            <label class="custom-file hidden-print" style="display:none;">
+                <input type="file" id="btnImagemPaciente" style="width: 160px;" class="form-control form-control-sm">
+                <span class="custom-file-control"></span>
+            </label>
+        </div>
+        <div class="col-sm-2"style="margin-top: 25px">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <div class="thumb-image">
+                        <img th:src="@{${'/personel/display/'+imageId}}"
+                             class="img img-responsive img-fluid" style="width: 250px"
+                             height="400" alt=""/>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">DİĞER ÖĞRENİM BİLGİLERİ</div>
+        </div>
+        <div class="col-lg-12">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th>MEZUNİYET TARİHİ</th>
+                    <th>OKUL</th>
+                    <th>FAKÜLTE</th>
+                    <th>BÖLÜM</th>
+                    <th>ÖĞRENİM SÜRESİ</th>
+                    <th>KURUM İBRAZ TARİHİ</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${personeldigerogrenim}">
+                    <td style="background-color:#D6E6F4; border-right:0px #41719C solid;">
+                        <span th:text="${#dates.format(user.getMezuniyet_tarihi(),'dd.MM.yyyy')}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getOkul())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getFakulte())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4; border-right:0px  #41719C solid;">
+                        <span th:text="${(user.getBolum())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4; border-right:0px  #41719C solid;">
+                        <span th:text="${(user.getOgrenim_suresi())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4; border-right:0px #41719C solid;">
+                        <span th:text="${#dates.format(user.getMezuniyet_ibraz_tarihi(),'dd.MM.yyyy')}"
+                              class="my-sm-8 my-6"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">TALEP ve REFERANSLAR</div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <textarea style="width:100%;height: 52px;border:2px #41719C solid;">Talep: </textarea>
+            </div>
+            <div class="form-group">
+                <textarea style="width:100%;height: 52px;border:2px #41719C solid;">Referans: </textarea>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">DİSİPLİN DURUMU</div>
+        </div>
+        <div class="col-lg-12">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th>CEZA TARİHİ</th>
+                    <th>İŞYERİ</th>
+                    <th>VERİLEN CEZA</th>
+                    <th>CEZA VEREN MAKAM</th>
+                    <th>RAPOR KONUSU</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${disiplinozet}">
+                    <td style="background-color:#D6E6F4; border-right:0px #41719C solid;">
+                        <span th:text="${#dates.format(user.getCezatarihi(),'dd.MM.yyyy')}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getIsyerikodu())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getOnerilencezaadi())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4; border-right:0px  #41719C solid;">
+                        <span th:text="${(user.getCezamakamadi())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4; border-right:0px  #41719C solid;">
+                           <textarea style="width:100%;height: 52px; width:550px;border:2px #41719C solid;"
+                                     th:text="${user.getAciklama()}">/
+                               <span th:text="${(user.getSorusturmakonuadi())}" class="my-sm-8 my-6"/> </textarea>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <b> <span class="text-uppercase" th:if="${disiplin1}==true"> Disiplin cezası bulunmamaktadır.. </span></b>
+            <P></P>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">HİZMETLERİ</div>
+        </div>
+        <div class="col-lg-12">
+            <table class="table table-sm">
+                <thead>
+                <tr>
+                    <th>İŞLEM BAŞLAMA TARİHİ</th>
+                    <th> ÖNCEKİ ÜNVANI</th>
+                    <th>ESKİ İŞYERİ</th>
+                    <th>YENİ İŞYERİ</th>
+                    <th> MEVCUT ÜNVANI</th>
+                    <th> İŞLEM TÜRÜ</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${personelhareket}">
+                    <td style="background-color:#D6E6F4; border-right:0px #41719C solid;">
+                        <span th:text="${#dates.format(user.getIslem_baslama_tarihi(),'dd.MM.yyyy')}"
+                              class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getEski_unvankodu())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getEski_isyerikodu())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getIsyerikodu())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getUnvankodu())}" class="my-sm-8 my-6"/>
+                    </td>
+                    <td style="background-color:#D6E6F4;border-right:0px #41719C solid;">
+                        <span th:text="${(user.getIslemturu_detay())}" class="my-sm-8 my-6"/>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">AÇIKLAMALAR</div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <textarea style="width:100%;height: 42px;border:1px #41719C solid;">AÇIKLAMALAR : </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-1 text-black text-center d-block titulo">SONUÇ ve ÖNERİLER</div>
+        </div>
+        <div class="col-lg-12">
+            <div class="form-group">
+                <textarea style="width:100%;height: 172px;border:2px #41719C solid;">Açıklama: </textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 text-left">
+            <h3><b>
+                <p>Bilgi ve Gereğini arz ederim</p></b></h3>
+        </div>
+        <div class="col-lg-6 text-center">
+            <p>___________________________</p>
+            <p>Fatih KAYA/Daire Başkanı </p>
+            <br><br>
+        </div>
+    </div>
+</div>
+</body>
+<div th:replace="common/header :: ysf"/>
+</html>

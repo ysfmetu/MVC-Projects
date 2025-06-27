@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div th:replace="common/header :: gecici"/>
+    <div th:replace="common/header :: gecici1"/>
+    <div th:replace="common/header :: navbar"/>
+</head>
+<body roleId="page-top">
+<div class="container main">
+    <div class="table-responsive">
+        <table id="example" class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th>SİCİL</th>
+                <th>AD</th>
+                <th>SOYAD</th>
+                <th>ÜNVAN</th>
+                <th>ŞUBESİ</th>
+                <th>GÖREVLENDİRME İŞYERİ</th>
+                <th>BAŞLAMA TARİHİ</th>
+                <!--<th>BİTİŞ TARİHİ</th>-->
+                <th>GÖREV TÜRÜ</th>
+                <th>DURUMU</th>
+                <th>HARCIRAH</th>
+                <th>AÇIKLAMA</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="eachuser : ${geciciAll}">
+                <td data-th-text="${eachuser.sicil}"></td>
+                <td data-th-text="${eachuser.ad}"></td>
+                <td data-th-text="${eachuser.soyad}"></td>
+                <td data-th-text="${eachuser.unvan}"></td>
+                <td data-th-text="${eachuser.isyeriadi2}"></td>
+                <td data-th-text="${eachuser.isyeriadi1}"></td>
+                <td data-th-text="${#dates.format(eachuser.baslamatarih,'dd.MM.yyyy')}"></td>
+                <!--<td data-th-text="${#dates.format(eachuser.bitistarih,'dd.MM.yyyy')}"></td>-->
+                <td data-th-text="${eachuser.gorev_turu}"></td>
+                <td data-th-text="${eachuser.durum}"></td>
+                <td data-th-text="${eachuser.harcirah}"></td>
+                <td data-th-text="${eachuser.aciklama}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Setup - add a text input to each footer cell
+        $('#example thead tr').clone(true).appendTo('#example thead');
+        $('#example thead tr:eq(1) th').each(function (i) {
+            var title = $(this).text();
+            $(this).html('<input type="text" placeholder=": ' + title + '" />');
+
+            $('input', this).on('keyup change', function () {
+                if (table.column(i).search() !== this.value) {
+                    table
+                        .column(i)
+                        .search(this.value)
+                        .draw();
+                }
+            });
+        });
+        var table = $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+            },
+            orderCellsTop: true,
+            fixedHeader: true,
+            dom: 'Bfrtip',
+            buttons: [
+                'excel', 'pdf', 'print'
+            ]
+        });
+    });
+
+</script>
+<div th:replace="common/header :: ysf"/>
+</body>
+</html>

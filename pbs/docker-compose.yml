@@ -1,0 +1,9 @@
+services:
+  personel-pbs:
+    build:
+      context: ./deploy
+      dockerfile: Dockerfile
+    container_name: personel-pbs
+    ports:
+      - "8061:8061"
+    restart: unless-stopped

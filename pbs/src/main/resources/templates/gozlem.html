@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <div th:replace="common/header :: gozlem"/>
+    <div th:replace="common/header :: navbar"/>
+</head>
+
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<div class="container main">
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h2>Toplam Personel Sayısı: </h2>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h1><i class="fa fa-users" aria-hidden="true"></i>
+                                <span th:text="${count}"></span></h1>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/userFront}">
+                    <div class="panel-footer">
+                        <span class="pull-left">Detayları Gör</span>
+                        <span class="pull-right"><i class="fa fa-arrow-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>MERKEZ</div>
+                            <div class="col-xs-12 text-right">
+                                <h1><span th:text="${countMerkez}"></span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/userMerkez}">
+                    <div class="panel-footer">
+                        <span class="pull-left">Merkez Personel Detay</span>
+                        <span class="pull-right"><i class="fa fa-arrow-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-user fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div>TAŞRA</div>
+                            <div class="col-xs-12 text-right">
+                                <h1><span th:text="${countTasra}"></span></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/userTasra}">
+                    <div class="panel-footer">
+                        <span class="pull-left">Taşra Personel Detay</span>
+                        <span class="pull-right"><i class="fa fa-arrow-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3>2022 yılı geçici görevli personel sayısı: </h3>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <h1><i class="fa fa-users" aria-hidden="true"></i>
+                                <span th:text="${countPGG}"></span></h1>
+                        </div>
+                    </div>
+                </div>
+                <a th:href="@{/userGecici}">
+                    <div class="panel-footer">
+                        <span class="pull-left">Geçici Görevli Personel Detayları</span>
+                        <span class="pull-right"><i class="fa fa-arrow-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <!--  <div class="row">
+          <div class="col-lg-6">
+              <div class="panel panel-warning">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-6">
+                              <h2>Vize Norm  </h2>
+                          </div>
+                          <div class="col-xs-6 text-right">
+                              <h1><i class="fa fa-users" aria-hidden="true"></i> &lt;!&ndash;<span th:text="${savingsAccount.accountBalance}">&ndash;&gt;</span></h1>
+                          </div>
+                      </div>
+                  </div>
+                  &lt;!&ndash; <a th:href="@{/account/savingsAccount}">&ndash;&gt;
+                  <div class="panel-footer">
+                      <span class="pull-left">Merkez taşra vize norm durumları</span>
+                      <span class="pull-right"><i class="fa fa-arrow-right"></i></span>
+                      <div class="clearfix"></div>
+                  </div>
+                  </a>
+              </div>
+          </div>
+      </div>
+  -->
+</div>
+
+<!--<div th:replace="common/header :: body-bottom-scripts"/>-->
+
+</body>
+<div th:replace="common/header :: ysf"/>
+</html>

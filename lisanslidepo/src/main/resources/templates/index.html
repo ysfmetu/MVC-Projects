@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="/fragments/head::head">
+</head>
+<body>
+
+<div class="container ">
+    <div class="alert alert-success" role="alert">
+        Lisanslı Depo Kontrol Uygulaması
+    </div>
+    <h4></h4>
+
+    <form th:action="@{/page/1}">
+        <input type="hidden" name="sortField" th:value="${sortField}">
+        <input type="hidden" name="sortDir" th:value="${sortDir}"> &emsp13; &emsp; &nbsp;
+        <span class="badge badge-pill badge-info">Detaylı Arama</span>
+        <input type="text" name="keyword" th:value="${keyword}" required> &nbsp;
+        <input type="submit" class="btn btn-primary" value="ara"> &nbsp;
+        <a th:href="@{/}" class="btn btn-primary">Tüm liste</a>
+        <!--<input type="button" class="btn btn-primary" value="tüm liste" onclick="clearFilter()" >-->
+        <a th:href="@{new_lisans}" class="btn btn-primary"> Yeni Depo Ekle </a>
+    </form>
+
+    <hr>
+    <div class="container ">
+        <table class="table  table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th style="width: 1.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=sira&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+ keyword:''}}">
+                        Sıra No</a>
+                </th>
+                <th style="width: 33.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=lisdepoadi&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        Depo Adı</a>
+                </th>
+                <th style="width: 1.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=adres&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        Şube No</a>
+                </th>
+                <th style="width: 12.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=subeno&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        Depo No</a>
+                </th>
+                <th style="width: 10.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=subeno&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        Snf. No</a>
+                </th>
+                <th style="width: 29.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=subeno&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        Şube</a>
+                </th>
+                <th style="width: 0.66%">
+                    <a th:href="@{'/page/' + ${currentPage} + '?sortField=subeno&sortDir=' + ${reverseSortDir}+${keyword !=null ? '&keyword='+keyword:''}}">
+                        alım no</a>
+                </th>
+                <th style="width: 12.66%"> Aksiyon</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="tempLisans : ${listLisans}">
+                <td th:text="${tempLisans.sira}"/>
+                <td width="1500" th:text="${tempLisans.lisdepoadi}"/>
+                <td th:text="${tempLisans.subeno}"/>
+                <td th:text="${tempLisans.lisansli_depoculuk_no}"/>
+                <td th:text="${tempLisans.yetkili_siniflandirici_no}"/>
+                <td th:text="${tempLisans.bagli_oldugu_sube}"/>
+                <td th:text="${tempLisans.bagli_oldugu_alim_noktasi}"/>
+
+
+                <td class="col-md-2"><a th:href="@{/showFormForUpdate/{id}(id=${tempLisans.lisdepono})}"
+                                        class="btn btn-primary">Düzeltme</a>
+                    <!--       <a th:href="@{/deleteLisans/{id}(id=${tempLisans.lisdepono})}" class="btn btn-danger">Silme</a>
+                   -->    </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:if="${totalPages >1}">
+            <div class="row col-sm-14">
+                <div class="col-sm-2">
+                    Toplam Kayıt : [[${totalItems}]]
+                </div> &nbsp;
+                <div class="col-sm-6">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}"
+                           th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} +${keyword !=null ? '&keyword='+keyword:''}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>
+					</span>
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}"
+                       th:href="@{'/page/' + ${currentPage - 1}+ '?sortField=' + ${sortField} + '&sortDir=' +${sortDir}+${keyword !=null ? '&keyword='+keyword:''}}">Geri</a>
+                    <span th:unless="${currentPage < totalPages}">Geri</span>
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}"
+                       th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' +${sortDir}+${keyword !=null ? '&keyword='+keyword:''}}">İleri</a>
+                    <span th:unless="${currentPage < totalPages}">ileri</span>
+                </div>
+
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}"
+                       th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}+${keyword !=null ? '&keyword='+keyword:''}}">Son</a>
+                    <span th:unless="${currentPage < totalPages}">son</span>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            function clearFilter() {
+                window.location = '/';
+            }
+        </script>
+</body>
+
+<footer th:replace="/fragments/footer::ysf">
+</html>

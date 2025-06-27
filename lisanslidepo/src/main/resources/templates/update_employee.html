@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Lisanlı Depo Yönetim Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container my-2">
+    <a th:href="@{/}" class="btn btn-primary">Liste ekranına dön</a>
+    <p class="h4 mb-4">Depo Düzeltme </p>
+    <hr>
+    <form action="#" th:action="@{/updateLisans}" th:object="${updatelisans}" method="post">
+
+        <!-- Add hidden form field to handle update -->
+        <input type="hidden" th:field="*{lisdepono}"/>
+
+        <label>sira no</label>
+        <input type="text" th:field="*{sira}"
+               class="form-control mb-4 col-4" placeholder="sıra no">
+        <label>depo adı</label>
+        <input type="text" th:field="*{lisdepoadi}"
+               class="form-control mb-4 col-4" placeholder="lisanslı depo adı">
+        <label>depo no</label>
+        <input type="text" th:field="*{lisansli_depoculuk_no}"
+               class="form-control mb-4 col-4" placeholder="lisansli_depoculuk_no">
+        <label>şube no</label>
+        <input type="number" th:field="*{subeno}"
+               class="form-control mb-4 col-4" placeholder="şube no">
+        <label>işyeri alım noktası kodu</label>
+        <input type="text" th:field="*{bagli_oldugu_alim_noktasi}"
+               class="form-control mb-4 col-4" placeholder="bagli_oldugu_alim_noktasi ">
+        <label>yetkili sınıflandırıcı no</label>
+        <input type="text" th:field="*{yetkili_siniflandirici_no}"
+               class="form-control mb-4 col-4" placeholder="yetkili_siniflandirici_no">
+        <label>şube kodu</label>
+        <input type="text" th:field="*{bagli_oldugu_sube}"
+               class="form-control mb-4 col-4" placeholder="bagli_oldugu_sube">
+        <button type="submit" class="btn btn-info col-2"> Güncelle</button>
+    </form>
+    <hr>
+</div>
+
+</body>
+</html>
+
+
+
